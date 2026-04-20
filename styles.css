@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  font-family: sans-serif;
+  font-family: Arial, sans-serif;
 }
 
 /* NAVBAR */
@@ -31,6 +31,7 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  filter: brightness(0.7) contrast(1.1);
 }
 
 .hero-overlay {
@@ -48,6 +49,12 @@ body {
   text-align: center;
 }
 
+.hero-content h1,
+.hero-content p,
+.hero-content button {
+  opacity: 0;
+}
+
 /* FEATURES */
 .features {
   padding: 60px 20px;
@@ -57,22 +64,6 @@ body {
   display: flex;
   gap: 20px;
   margin-bottom: 40px;
-}
-
-/* SLIDER */
-.slider-container {
-  display: flex;
-  overflow-x: auto;
-  gap: 20px;
-  padding: 20px;
-}
-
-.slide {
-  min-width: 200px;
-  background: #4CAF50;
-  color: white;
-  padding: 40px;
-  border-radius: 10px;
 }
 
 /* CARDS */
@@ -94,26 +85,8 @@ body {
   transform: scale(1.05);
 }
 
-/* ANIMATION */
-.fade-in {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: 1s;
-}
-
-.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.hero-content h1,
-.hero-content p,
-.hero-content button {
-  opacity: 0;
-}
-
+/* PERFORMANCE */
 .feature,
-.card,
-.slide {
+.card {
   will-change: transform, opacity;
 }

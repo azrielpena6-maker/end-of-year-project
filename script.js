@@ -1,37 +1,34 @@
-// Register plugin
+// GSAP setup
 gsap.registerPlugin(ScrollTrigger);
 
-// NAVBAR SCROLL
+// Navbar scroll effect
 window.addEventListener("scroll", () => {
   const nav = document.getElementById("navbar");
   nav.classList.toggle("scrolled", window.scrollY > 50);
 });
 
-// HERO ANIMATION (fade + slide up)
+// Hero animations
 gsap.from(".hero-content h1", {
   y: 80,
   opacity: 0,
-  duration: 1.2,
-  ease: "power3.out"
+  duration: 1.2
 });
 
 gsap.from(".hero-content p", {
   y: 50,
   opacity: 0,
-  duration: 1,
   delay: 0.3,
-  ease: "power3.out"
+  duration: 1
 });
 
 gsap.from(".hero-content button", {
   y: 30,
   opacity: 0,
-  duration: 1,
   delay: 0.6,
-  ease: "power3.out"
+  duration: 1
 });
 
-// PARALLAX HERO EFFECT
+// Parallax zoom
 gsap.to(".hero-video", {
   scale: 1.2,
   scrollTrigger: {
@@ -42,41 +39,26 @@ gsap.to(".hero-video", {
   }
 });
 
-// FEATURES ANIMATION
-gsap.utils.toArray(".feature").forEach((feature, i) => {
-  gsap.from(feature, {
-    scrollTrigger: {
-      trigger: feature,
-      start: "top 80%",
-    },
-    x: i % 2 === 0 ? -100 : 100,
-    opacity: 0,
-    duration: 1,
-    ease: "power2.out"
-  });
+// Feature animations
+gsap.from(".feature", {
+  scrollTrigger: {
+    trigger: ".features",
+    start: "top 80%"
+  },
+  x: -100,
+  opacity: 0,
+  duration: 1,
+  stagger: 0.3
 });
 
-// CARDS STAGGER ANIMATION
+// Card animations
 gsap.from(".card", {
   scrollTrigger: {
     trigger: ".cards",
-    start: "top 80%",
+    start: "top 80%"
   },
   y: 100,
   opacity: 0,
   stagger: 0.2,
-  duration: 1,
-  ease: "power2.out"
-});
-
-// SLIDER ANIMATION
-gsap.from(".slide", {
-  scrollTrigger: {
-    trigger: ".slider",
-    start: "top 85%",
-  },
-  x: 100,
-  opacity: 0,
-  stagger: 0.2,
-  duration: 0.8
+  duration: 1
 });
